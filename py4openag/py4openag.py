@@ -27,6 +27,7 @@ class functions:
         Args:
                 data (pd.DataFrame): Input data
         """
+        print("Using cleaned and documented code...")
 
         validation = self.data_validation(data)
         if validation[0]:
