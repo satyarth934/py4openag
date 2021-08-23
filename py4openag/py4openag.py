@@ -33,7 +33,9 @@ class functions:
             columns = self.has_columns(data)
             if columns[0]:
                 self.data = data
-                print("Successfully imported the data!\n")
+                print(
+                    "Successfully imported the data!\nUsing cleaned and documented code..."
+                )
             else:
                 print(columns[1])  # Printing the error message from method.
         else:
