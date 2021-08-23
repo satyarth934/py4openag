@@ -85,7 +85,7 @@ class functions:
         data: pd.DataFrame,
         thresholdtemp: float,
         year: int,
-        months: List[int, int] = [1, 12],
+        months: List[int] = [1, 12],
     ) -> float:
         """Calculates mean temperature for days with a temperature rise.
 
@@ -93,7 +93,7 @@ class functions:
                 data (pd.DataFrame): Input data
                 thresholdtemp (float): Threshold temperature
                 year (int): Year to query from the input data.
-                months (List[int, int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
+                months (List[int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
 
         Returns:
                 float: Returns the mean temperature for days with a temperature rise.
@@ -116,7 +116,7 @@ class functions:
         threshold: float,
         area: str,
         year: int,
-        months: List[int, int] = [1, 12],
+        months: List[int] = [1, 12],
     ) -> float:
         """Calculates the sum of rise or fall in temperature for the specified months.
 
@@ -125,7 +125,7 @@ class functions:
                 threshold (float): Threshold to calculate the temperature rise or fall.
                 area (str): To specify rise: "above" or fall: "below"
                 year (int): Year to query from the input data.
-                months (List[int, int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
+                months (List[int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
 
         Returns:
                 float: Returns the sum of rise or fall in temperature for the specified months.
@@ -207,14 +207,14 @@ class functions:
             return None
 
     def average_temperature(
-        self, data: pd.DataFrame, year: int, months: List[int, int] = [1, 12]
+        self, data: pd.DataFrame, year: int, months: List[int] = [1, 12]
     ) -> float:
         """Calculates the mean of the air temperature over all the months mentioned for the specified yearself.
 
         Args:
                 data (pd.DataFrame): Input data
                 year (int): Year to query from the input data.
-                months (List[int, int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
+                months (List[int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
 
         Returns:
                 float: Returns the mean of the air temperature over all the months for the specified year.
@@ -230,14 +230,14 @@ class functions:
         return avg
 
     def total_precipitation(
-        self, data: pd.DataFrame, year: int, months: List[int, int] = [1, 12]
+        self, data: pd.DataFrame, year: int, months: List[int] = [1, 12]
     ) -> float:
         """Calculates the total precipitation over all the months mentioned for a specified year.
 
         Args:
                 data (pd.DataFrame): Input data
                 year (int): Year to query from the input data
-                months (List[int, int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
+                months (List[int], optional): Specifies the range of months using the start and end month. Defaults to [1, 12].
 
         Returns:
                 float: Returns the sum of total_precipitation over all the months for the specified year.
@@ -253,13 +253,13 @@ class functions:
         return sum
 
     def temptrend(
-        self, data: pd.DataFrame, years: List[int, int]
+        self, data: pd.DataFrame, years: List[int]
     ) -> Tuple[float, float, float]:
         """Calculates the average temperature trend over years using linear regression and pearson correlation.
 
         Args:
                 data (pd.DataFrame): Input data
-                years (List[int, int]): Range of years defined by starting year and ending year.
+                years (List[int]): Range of years defined by starting year and ending year.
 
         Returns:
                 Tuple[float, float, float]: Returns the captured trend using three values: pearson correlation coefficient, two-tailed p-value, linear regression coefficient.
@@ -280,13 +280,13 @@ class functions:
         return r, pvalT[1], reg.coef_[0]
 
     def preciptrend(
-        self, data: pd.DataFrame, years: List[int, int]
+        self, data: pd.DataFrame, years: List[int]
     ) -> Tuple[float, float, float]:
         """Calculates the average precipitation trend over years using linear regression and pearson correlation.
 
         Args:
                 data (pd.DataFrame): Input data
-                years (List[int, int]): Range of years defined by starting year and ending year.
+                years (List[int]): Range of years defined by starting year and ending year.
 
         Returns:
                 Tuple[float, float, float]: Returns the captured trend using three values: pearson correlation coefficient, two-tailed p-value, linear regression coefficient.
@@ -410,13 +410,13 @@ class functions:
         return m, fig
 
     def heavy_precipitation_days(
-        self, data: pd.DataFrame, years: List[int, int]
+        self, data: pd.DataFrame, years: List[int]
     ) -> int:
         """Counts the number of heavy precipitation days from the range of the given years.
 
         Args:
                 data (pd.DataFrame): Input data
-                years (List[int, int]): Range of years defined by the starting year and ending year.
+                years (List[int]): Range of years defined by the starting year and ending year.
 
         Returns:
                 int: Returns the count of heavy precipitation days.
